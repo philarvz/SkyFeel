@@ -1,15 +1,51 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+# Sistema operativo
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+Thumbs.db
+
+# Archivos del IDE (Android Studio)
+.idea/
+*.iml
+
+# Archivos de compilación
+build/
+app/build/
+
+# Archivos de Gradle
+.gradle/
 local.properties
+.gradle/caches/
+.gradle/daemon/
+.gradle/wrapper/
+.gradle/init.gradle
+gradle-app.setting
+gradle-wrapper.properties
+gradlew
+gradlew.bat
+
+# Archivos de caché y configuraciones locales
+*.log
+*.swp
+*.swo
+*.tmp
+
+# Archivos de sistema específicos
+*.class
+*.apk
+*.dex
+*.jar
+*.keystore
+*.hprof
+
+# Configuración de ProGuard
+*.pro.user
+
+# Archivos de prueba
+test-results/
+*.ec
+
+# Configuración de Android
+**/generated/
+captures/
+
+# Archivos de Firebase
+google-services.json
