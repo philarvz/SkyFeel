@@ -110,11 +110,27 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     private fun setMapClickListener() {
         map.setOnMapClickListener { latLng ->
-            val intent = Intent(requireContext(), HomeFragment).apply {
-                putExtra("LATITUDE", latLng.latitude)
-                putExtra("LONGITUDE", latLng.longitude)
+            val bundle = Bundle().apply {
+                putDouble("LATITUDE", latLng.latitude)
+                putDouble("LONGITUDE", latLng.longitude)
             }
-            startActivity(intent)
+
+            val homeFragment = HomeFragment().apply {
+                arguments = bundle
+            }
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, homeFragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 }
+
+
+
+
+
+
+
+
