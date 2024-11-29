@@ -3,19 +3,24 @@ package mx.edu.utez.skyfeel
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Configura el Splash Screen del sistema
+        val splashScreen = installSplashScreen()
+
+        // Opcional: Mantén el Splash visible hasta completar alguna lógica
+        splashScreen.setKeepOnScreenCondition {
+            false // Cambiar a `true` si necesitas más tiempo
+        }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        // Usamos un Handler para hacer el retraso de 3 segundos
-        Handler().postDelayed({
-            // Aquí rediriges a la DashboardActivity después de 3 segundos
-            val intent = Intent(this, DashboardActivity::class.java)
-            startActivity(intent)
-            finish()  // Termina la MainActivity (si no la quieres en la pila)
-        }, 10000)  // 3000 milisegundos = 3 segundos
     }
 }
