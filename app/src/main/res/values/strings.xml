@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SkyFeel</string>
+    <string name="current_label">Current</string>
+    <string name="location">Ubicación</string>
+    //muestra el nombre del lugar
+    <string name="updated_at">Actualizado</string>
+    //muestra hora de actualizacion
+    <string name="type_sky">Tipo de clima</string>
+    //muestra despejado, nublado, lluvia o soleado
+    <string name="_degrees_c"> °C</string>
+    //muestra temp
+    <string name="min_temp">Min temp: </string>
+    <string name="max_temp">Max Temp: </string>
+    <string name="feels_like">Sensación de: </string>
+    <string name="favorite_icon">Favoritos</string>
+    <string name="find_icon">Buscra</string>
+</resources>
