@@ -6,6 +6,9 @@ Thumbs.db
 .idea/
 *.iml
 
+# Secrets properties
+secrets.properties
+
 # Archivos de compilación
 build/
 app/build/
@@ -35,6 +38,8 @@ gradlew.bat
 *.jar
 *.keystore
 *.hprof
+
+
 
 # Configuración de ProGuard
 *.pro.user

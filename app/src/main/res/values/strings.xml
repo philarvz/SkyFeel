@@ -14,4 +14,6 @@
     <string name="feels_like">Sensación de: </string>
     <string name="favorite_icon">Favoritos</string>
     <string name="find_icon">Buscra</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

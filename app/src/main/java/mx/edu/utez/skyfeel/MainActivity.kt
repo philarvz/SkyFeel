@@ -1,26 +1,34 @@
 package mx.edu.utez.skyfeel
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.fragment.app.Fragment
+import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Configura el Splash Screen del sistema
-        val splashScreen = installSplashScreen()
-
-        // Opcional: Mantén el Splash visible hasta completar alguna lógica
-        splashScreen.setKeepOnScreenCondition {
-            false // Cambiar a `true` si necesitas más tiempo
-        }
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val bottomNavBar = findViewById<ChipNavigationBar>(R.id.bottom_nav_bar)
+
+        // Cargar el fragmento inicial (HomeFragment)
+        loadFragment(HomeFragment())
+
+        // Configurar navegación con el ChipNavigationBar
+        bottomNavBar.setOnItemSelectedListener { id ->
+            when (id) {
+                R.id.home -> loadFragment(HomeFragment())
+                R.id.map -> loadFragment(MapFragment())
+                R.id.favorites -> loadFragment(FavoritesFragment())
+            }
+        }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 }
