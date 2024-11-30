@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import mx.edu.utez.skyfeel.adapters.FavoritesAdapter
+import mx.edu.utez.skyfeel.models.Location
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,4 +60,28 @@ class FavoritesFragment : Fragment() {
                 }
             }
     }
+
+        private lateinit var recyclerView: RecyclerView
+        private lateinit var favoritesAdapter: FavoritesAdapter
+        private lateinit var favoritesList: List<Location>
+
+        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
+
+            // Configura el RecyclerView
+            recyclerView = view.findViewById(R.id.recyclerView)
+            recyclerView.layoutManager = LinearLayoutManager(context)
+
+            // Carga los datos (en este caso, prueba con datos estáticos)
+            favoritesList = listOf(
+                Location("Paris", "18", "Sunny"),
+                Location("London", "15", "Cloudy"),
+                        Location("mexico", "23", "Cloudy")
+            )
+
+            // Asigna el adaptador
+            favoritesAdapter = FavoritesAdapter(favoritesList)
+            recyclerView.adapter = favoritesAdapter
+        }
+
 }
